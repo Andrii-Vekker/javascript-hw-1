@@ -88,46 +88,43 @@
 
 // task-4
 
-const countryName = 'КитаЙ';
+// const countryName = 'КитаЙ';
 
-const CANCELED_BY_USER = 'Отменено пользователем!';
-const NO_DELIVERY = 'В выбранную страну доставка недоступна.';
-const CHINA = 'Китай';
-const AUSTRALIA = 'Австралия';
-const INDIA = 'Индия';
-const JAMAICA = 'Ямайка';
-let message;
-let price = 0;
-let country;
-if (countryName === null) {
-  message = CANCELED_BY_USER;
-} else {
-  country = countryName[0].toUpperCase() + countryName.slice(1).toLowerCase();
-  switch (country) {
-    case CHINA:
-      price = 100;
-      break;
-    case AUSTRALIA:
-      price = 170;
-      break;
-    case INDIA:
-      price = 80;
-      break;
-    case JAMAICA:
-      price = 120;
-      break;
-    default:
-      countryName !== country;
-      message = NO_DELIVERY;
-  }
-}
-if (price > 0) {
-  message = `Доставка в ${country} будет стоить ${price} кредитов`;
-}
-console.log(message);
-// else if (countryName !== country) {
-//   message = NO_DELIVERY;
+// const CANCELED_BY_USER = 'Отменено пользователем!';
+// const NO_DELIVERY = 'В выбранную страну доставка недоступна.';
+// const CHINA = 'Китай';
+// const AUSTRALIA = 'Австралия';
+// const INDIA = 'Индия';
+// const JAMAICA = 'Ямайка';
+// let message;
+// let price = 0;
+// let country;
+// if (countryName === null) {
+//   message = CANCELED_BY_USER;
+// } else {
+//   country = countryName[0].toUpperCase() + countryName.slice(1).toLowerCase();
+//   switch (country) {
+//     case CHINA:
+//       price = 100;
+//       break;
+//     case AUSTRALIA:
+//       price = 170;
+//       break;
+//     case INDIA:
+//       price = 80;
+//       break;
+//     case JAMAICA:
+//       price = 120;
+//       break;
+//     default:
+//       countryName !== country;
+//       message = NO_DELIVERY;
+//   }
 // }
+// if (price > 0) {
+//   message = `Доставка в ${country} будет стоить ${price} кредитов`;
+// }
+// console.log(message);
 
 // console.log(message);
 
@@ -142,3 +139,120 @@ console.log(message);
 //если countryName равно "Чили"
 // то значение message будет равно
 // 'В выбранную страну доставка недоступна.'
+
+//task-5
+
+// const getItemsString = function (array) {
+//'use strict';
+// Write code under this line
+//   let result = '';
+
+//   for (let i = 0; i < array.length; i += 1) {
+//     result += result = `${i + 1} - ${array[i]}\n`;
+//   }
+//   return result;
+// };
+// console.log(getItemsString(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']));
+// console.log(getItemsString(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']));
+/*
+'1 - Mango
+2 - Poly
+3 - Ajax
+4 - Lux
+5 - Jay
+6 - Kong
+'
+*/
+
+// console.log(getItemsString([5, 10, 15]));
+// /*
+// '1 - 5
+// 2 - 10
+// 3 - 15
+
+//task - 6
+
+//const calculateEngravingPrice = (message = '', pricePerWord = 0) =>
+// message.split(' ').length * pricePerWord;
+
+// console.log(
+//   calculateEngravingPrice(
+//     'Proin sociis natoque et magnis parturient montes mus',
+//     10,
+//   ),
+// ); // 80
+
+// console.log(
+//   calculateEngravingPrice(
+//     'Proin sociis natoque et magnis parturient montes mus',
+//     20,
+//   ),
+// ); // 160
+
+// console.log(
+//   calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
+// ); // 240
+
+// console.log(
+//   calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
+// ); // 120
+
+//console.log(calculateEngravingPrice('Uno', 100)); // 100
+
+//task-7
+// function findLongestWord(string = '') {
+// Write code under this line
+//   let stringWord = string.split(' ');
+//   let longestWord = stringWord[0];
+//   for (const word of stringWord) {
+//     if (word.length > longestWord.length) {
+//       longestWord = word;
+//     }
+//   }
+//   return longestWord;
+// }
+
+// console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+// ('jumped');
+
+// console.log(findLongestWord('Google do a roll'));
+// ('Google');
+
+// console.log(findLongestWord('May the force be with you'));
+// ('force');
+
+//task-8
+
+// function formatString(string, maxLength = 40) {
+//   const dots = `...`;
+//   return string.length > maxLength
+//     ? string.slice`${maxLength}`.concat(dots)
+//     : string;
+// }
+
+// console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
+// ('Curabitur ligula sapien, tincidunt non.');
+
+// console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+// ('Vestibulum facilisis, purus nec pulvinar...');
+
+// console.log(
+//   formatString('Vestibulum facilisis, purus nec pulvinar iaculis.', 30),
+// );
+// ('Vestibulum facilisis, purus ne...');
+
+//task-9
+function checkForSpam(str) {
+  'use strict';
+  // Write code under this line
+  console.log(str.toLowerCase());
+  return str.toLowerCase().includes('sale' || 'spam');
+}
+
+console.log(checkForSpam('Latest technology news')); // false
+
+console.log(checkForSpam('JavaScript weekly newsletter')); // false
+
+console.log(checkForSpam('Get best sale offers now!')); // true
+
+console.log(checkForSpam('[SPAM] How to earn fast money?')); //true
