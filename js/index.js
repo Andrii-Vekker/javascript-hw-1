@@ -246,7 +246,7 @@ function checkForSpam(str) {
   'use strict';
   // Write code under this line
   console.log(str.toLowerCase());
-  return str.toLowerCase().includes('sale' || 'spam');
+  return str.toLowerCase().includes('sale', 'spam');
 }
 
 console.log(checkForSpam('Latest technology news')); // false
