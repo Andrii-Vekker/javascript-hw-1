@@ -242,17 +242,138 @@
 // ('Vestibulum facilisis, purus ne...');
 
 //task-9
-function checkForSpam(str) {
-  'use strict';
+//function checkForSpam(str) {
+'use strict';
+// Write code under this line
+//   console.log(str.toLowerCase());
+//   return (
+//     str.toLowerCase().includes('spam') || str.toLowerCase().includes('sale')
+//   );
+// }
+
+//console.log(checkForSpam('Latest technology news')); // false
+
+//console.log(checkForSpam('JavaScript weekly newsletter')); // false
+
+//console.log(checkForSpam('Get best sale offers now!')); // true
+
+//console.log(checkForSpam('[SPAM] How to earn fast money?')); //true
+
+//task-10
+
+// function mapArray(array) {
+//   'use strict';
+//   const numbers = new Array(array.length);
+//   for (let i = 0; i < array.length; i += 1) {
+//     // Write code under this line
+//     numbers[i] = array[i] * 10;
+//   }
+//   return numbers;
+// }
+
+//console.log(mapArray([-2, 0, 2]));
+// [-20, 0, 20]
+
+//console.log(mapArray([-2.5, 0, 2.5]));
+// [-25, 0, 25]
+
+//task-10
+
+// function filterArray(array) {
+//   'use strict';
+//   const numbers = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     // Write code under this line
+
+//     if (Number.isFinite(array[i]) === true) {
+//       numbers.push(array[i]);
+//     }
+//   }
+//   return numbers;
+// }
+
+//console.log(filterArray([-2, 0, 2]));
+// [-2, 0, 2]
+
+//console.log(filterArray([1, NaN, Infinity]));
+// [1]
+
+//console.log(filterArray([0, -0, 100, '100']));
+// [0, 0, 100]
+
+//console.log(filterArray([undefined, false, null, [], 1]));
+// [1]
+
+//console.log(filterArray([{}, () => {}, 2]));
+// [2]
+
+// task-11
+
+// function reduceArray(array) {
+//   'use strict';
+//   let total = 0;
+//   let value = array.length;
+//   // Write code under this line
+
+//   for (const value of array) {
+//     total += value;
+//   }
+//   return total;
+// }
+
+//console.log(reduceArray([1, 2, 3]));
+// 6
+
+//console.log(reduceArray([-2, 0, 2]));
+// 0
+
+//console.log(reduceArray([1, 2, 2.5]));
+// 5.5
+
+// task-12
+
+function isLoginValid(login, min = 4, max = 16) {
   // Write code under this line
-  console.log(str.toLowerCase());
-  return str.toLowerCase().includes('sale', 'spam');
+  const loginValid = login.length >= min && login.length <= max;
+  return loginValid;
 }
 
-console.log(checkForSpam('Latest technology news')); // false
+function isLoginUnique(allLogins, login) {
+  'use strict';
+  // Write code under this line
+  const loginUnique = allLogins.includes(login);
+  if (loginUnique === true) {
+    return false;
+  }
+  return true;
+}
 
-console.log(checkForSpam('JavaScript weekly newsletter')); // false
+function addLogin(allLogins, login) {
+  'use strict';
+  const SUCCESS = 'Логин успешно добавлен!';
+  const REFUSAL = 'Такой логин уже используется!';
+  const ERROR = 'Ошибка! Логин должен быть размером от 4 до 16 символов';
+  let message;
+  // Write code under this line
+  if (isLoginValid(login) === false) {
+    return (message = ERROR);
+  } else if (isLoginUnique(allLogins, login) === true) {
+    allLogins.push(login);
+    return (message = SUCCESS);
+  }
+  return (message = REFUSAL);
+}
 
-console.log(checkForSpam('Get best sale offers now!')); // true
+const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
-console.log(checkForSpam('[SPAM] How to earn fast money?')); //true
+console.log(addLogin(logins, 'Ajax'));
+// 'Логин успешно добавлен!'
+
+console.log(addLogin(logins, 'robotGoogles'));
+// 'Такой логин уже используется!'
+
+console.log(addLogin(logins, 'Zod'));
+// 'Ошибка! Логин должен быть от 4 до 16 символов'
+
+console.log(addLogin(logins, 'jqueryisextremelyfast'));
+// 'Ошибка! Логин должен быть от 4 до 16 символов'
