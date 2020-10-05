@@ -332,48 +332,138 @@
 
 // task-12
 
-function isLoginValid(login, min = 4, max = 16) {
-  // Write code under this line
-  const loginValid = login.length >= min && login.length <= max;
-  return loginValid;
-}
+//function isLoginValid(login, min = 4, max = 16) {
+// Write code under this line
+//   const loginValid = login.length >= min && login.length <= max;
+//   return loginValid;
+// }
 
-function isLoginUnique(allLogins, login) {
-  'use strict';
-  // Write code under this line
-  const loginUnique = allLogins.includes(login);
-  if (loginUnique === true) {
-    return false;
-  }
-  return true;
-}
+// function isLoginUnique(allLogins, login) {
+//   'use strict';
+//   // Write code under this line
+//   const loginUnique = allLogins.includes(login);
+//   if (loginUnique === true) {
+//     return false;
+//   }
+//   return true;
+// }
 
-function addLogin(allLogins, login) {
-  'use strict';
-  const SUCCESS = 'Логин успешно добавлен!';
-  const REFUSAL = 'Такой логин уже используется!';
-  const ERROR = 'Ошибка! Логин должен быть размером от 4 до 16 символов';
-  let message;
-  // Write code under this line
-  if (isLoginValid(login) === false) {
-    return (message = ERROR);
-  } else if (isLoginUnique(allLogins, login) === true) {
-    allLogins.push(login);
-    return (message = SUCCESS);
-  }
-  return (message = REFUSAL);
-}
+// function addLogin(allLogins, login) {
+//   'use strict';
+//   const SUCCESS = 'Логин успешно добавлен!';
+//   const REFUSAL = 'Такой логин уже используется!';
+//   const ERROR = 'Ошибка! Логин должен быть размером от 4 до 16 символов';
+//   let message;
+//   // Write code under this line
+//   if (isLoginValid(login) === false) {
+//     return (message = ERROR);
+//   } else if (isLoginUnique(allLogins, login) === true) {
+//     allLogins.push(login);
+//     return (message = SUCCESS);
+//   }
+//   return (message = REFUSAL);
+// }
 
-const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+//const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
-console.log(addLogin(logins, 'Ajax'));
+//console.log(addLogin(logins, 'Ajax'));
 // 'Логин успешно добавлен!'
 
-console.log(addLogin(logins, 'robotGoogles'));
+//console.log(addLogin(logins, 'robotGoogles'));
 // 'Такой логин уже используется!'
 
-console.log(addLogin(logins, 'Zod'));
+//console.log(addLogin(logins, 'Zod'));
 // 'Ошибка! Логин должен быть от 4 до 16 символов'
 
-console.log(addLogin(logins, 'jqueryisextremelyfast'));
+//console.log(addLogin(logins, 'jqueryisextremelyfast'));
 // 'Ошибка! Логин должен быть от 4 до 16 символов'
+
+//objects
+
+//task-1
+
+// let message = '';
+// const user = {
+//   age: 20,
+//   hobby: 'html',
+//   name: 'Mango',
+//   premium: true,
+// };
+
+//Write code under this line
+// user[`mood`] = `happy \n`;
+// user[`full time`] = true;
+// user.hobby = `skydiving`;
+// user.premium = false;
+//console.log(user);
+//const keys = Object.keys(user);
+// Write code under this line
+// for (const key of keys) {
+//   message += `${key} : ${user[key]} ${'\n'}`;
+// }
+// console.log(keys);
+// console.log(message);
+/*
+'age : 20 
+hobby : skydiving 
+name : Mango 
+premium : false 
+mood : happy 
+"full time" : true 
+' */
+
+//task-2
+
+// const countProps = function (obj) {
+//   'use strict';
+//   const value = Object.keys(obj);
+//   return value.length;
+// };
+
+//console.log(countProps({})); // 0
+
+//console.log(countProps({ a: 1, b: 1 })); // 2
+
+//console.log(countProps({ a: 1, b: 1, c: 1, d: 1, e: 1 })); // 5
+
+//task - 3
+
+const findBestEmployee = function (employees) {
+  ('use strict');
+
+  const values = Object.values(employees);
+  const entries = Object.entries(employees);
+  const biggestNumber = Math.max(...values);
+  for (const entrie of entries) {
+    if (biggestNumber === entrie[1]) {
+      return entrie[0];
+    }
+  }
+};
+
+// Объекты и ожидаемый результат
+const developers = {
+  ann: 29,
+  david: 35,
+  helen: 1,
+  lorence: 99,
+};
+console.log(findBestEmployee(developers));
+// 'lorence'
+
+const supports = {
+  poly: 12,
+  mango: 17,
+  ajax: 4,
+};
+console.log(findBestEmployee(supports));
+// 'mango'
+
+const sellers = {
+  lux: 147,
+  david: 21,
+  kiwi: 19,
+  chelsy: 38,
+};
+console.log(findBestEmployee(sellers));
+// 'lux'
