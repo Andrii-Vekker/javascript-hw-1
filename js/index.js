@@ -427,43 +427,135 @@ mood : happy
 //console.log(countProps({ a: 1, b: 1, c: 1, d: 1, e: 1 })); // 5
 
 //task - 3
+//решение1
+// const findBestEmployee = function (employees) {
+//   ('use strict');
 
-const findBestEmployee = function (employees) {
-  ('use strict');
+//   const values = Object.values(employees);
+//   console.log(values);
+//   const entries = Object.entries(employees);
+//   console.log(entries);
+//   let biggestNumber = Math.max(...values);
+//   if (!values.length || !entries.length) {
+//     return '';
+//   }
+//   for (const entrie of entries) {
+//     if (biggestNumber === entrie[1]) {
+//       return entrie[0];
+//     }
+//   }
+// };
 
-  const values = Object.values(employees);
-  const entries = Object.entries(employees);
-  const biggestNumber = Math.max(...values);
-  for (const entrie of entries) {
-    if (biggestNumber === entrie[1]) {
-      return entrie[0];
-    }
-  }
-};
+//решение2
+// const findBestEmployee = function (employees) {
+//   'use strict';
+//   let bestEmployee = '';
+//   const values = Object.values(employees);
+//   const max = Math.max(...values);
+//   const bestEmployees = Object.entries(employees);
+//   for (const entrie of bestEmployees) {
+//     if (entrie[1] === max) {
+//       bestEmployee = entrie[0];
+//     }
+//   }
+//   return bestEmployee;
+// };
 
 // Объекты и ожидаемый результат
-const developers = {
-  ann: 29,
-  david: 35,
-  helen: 1,
-  lorence: 99,
-};
-console.log(findBestEmployee(developers));
+// const developers = {
+//   ann: 29,
+//   david: 35,
+//   helen: 1,
+//   lorence: 99,
+// };
+// console.log(findBestEmployee(developers));
 // 'lorence'
 
-const supports = {
-  poly: 12,
-  mango: 17,
-  ajax: 4,
-};
-console.log(findBestEmployee(supports));
+// const supports = {
+//   poly: 12,
+//   mango: 17,
+//   ajax: 4,
+// };
+// console.log(findBestEmployee(supports));
 // 'mango'
 
-const sellers = {
-  lux: 147,
-  david: 21,
-  kiwi: 19,
-  chelsy: 38,
-};
-console.log(findBestEmployee(sellers));
+// const sellers = {
+//   lux: 147,
+//   david: 21,
+//   kiwi: 19,
+//   chelsy: 38,
+// };
+// console.log(findBestEmployee(sellers));
 // 'lux'
+
+//task-4
+
+// const countTotalSalary = function (employees) {
+//   'use strict';
+//   let total = 0;
+//   const values = Object.values(employees);
+//   for (const value of values) {
+//     console.log(value);
+//     total += value;
+//   }
+//   return total;
+// };
+
+// Объекты и ожидаемый результат
+// const developers = {
+//   mango: 300,
+//   poly: 250,
+//   alfred: 450,
+// };
+// console.log(countTotalSalary(developers));
+// 1000
+
+// const supports = {
+//   kiwi: 200,
+//   lux: 150,
+//   chelsy: 150,
+// };
+// console.log(countTotalSalary(supports));
+// 500
+
+//task -1
+
+function getAllPropValues(array, prop) {
+  'use strict';
+  // Write code under this line
+  const names = [];
+  const quantity = [];
+  if (quantity in products) {
+    quantity.push(products.quantity);
+    console.log(quantity);
+  }
+  for (const product of products) {
+    //console.log(product.name);
+    names.push(product.name);
+  }
+  if (quantity in products) {
+    quantity.push(products.quantity);
+    console.log(quantity);
+  }
+  return names;
+}
+
+// Объекты и ожидаемый результат
+const products = [
+  { name: 'Радар', price: 1300, quantity: 4 },
+  { name: 'Радар', price: 1280, quantity: 2 },
+  { name: 'Радар', price: 1320, quantity: 1 },
+  { name: 'Сканер', price: 2700, quantity: 1 },
+  { name: 'Сканер', price: 2500, quantity: 3 },
+  { name: 'Дроид', price: 400, quantity: 7 },
+  { name: 'Захват', price: 1200, quantity: 2 },
+];
+
+console.log(getAllPropValues(products, 'name'));
+// ['Радар', 'Радар', 'Радар', 'Сканер', 'Сканер', 'Дроид', 'Захват']
+
+console.log(getAllPropValues(products, 'quantity'));
+// [4, 2, 1, 1, 3, 7, 2]
+
+console.log(getAllPropValues(products, 'category'));
+//  []
