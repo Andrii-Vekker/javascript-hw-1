@@ -518,26 +518,50 @@ mood : happy
 // console.log(countTotalSalary(supports));
 // 500
 
-//task -1
+//task -5
 
-function getAllPropValues(array, prop) {
+// function getAllPropValues(array, prop) {
+//   'use strict';
+//   let property = [];
+
+//   for (const product of array) {
+//     if (prop in product) {
+//       property.push(product[prop]);
+//     }
+//   }
+
+//   return property;
+// }
+
+// Объекты и ожидаемый результат
+// const products = [
+//   { name: 'Радар', price: 1300, quantity: 4 },
+//   { name: 'Радар', price: 1280, quantity: 2 },
+//   { name: 'Радар', price: 1320, quantity: 1 },
+//   { name: 'Сканер', price: 2700, quantity: 1 },
+//   { name: 'Сканер', price: 2500, quantity: 3 },
+//   { name: 'Дроид', price: 400, quantity: 7 },
+//   { name: 'Захват', price: 1200, quantity: 2 },
+// ];
+// console.log(getAllPropValues(products, 'name'));
+// ['Радар', 'Радар', 'Радар', 'Сканер', 'Сканер', 'Дроид', 'Захват']
+
+//console.log(getAllPropValues(products, 'quantity'));
+// [4, 2, 1, 1, 3, 7, 2]
+
+//console.log(getAllPropValues(products, 'category'));
+//  []
+
+//task-6
+function calculateTotalPrice(array, prop) {
   'use strict';
-  // Write code under this line
-  const names = [];
-  const quantity = [];
-  if (quantity in products) {
-    quantity.push(products.quantity);
-    console.log(quantity);
+  let total = 0;
+  for (const product of array) {
+    if (product.name === prop) {
+      total += product.price * product.quantity;
+    }
   }
-  for (const product of products) {
-    //console.log(product.name);
-    names.push(product.name);
-  }
-  if (quantity in products) {
-    quantity.push(products.quantity);
-    console.log(quantity);
-  }
-  return names;
+  return total;
 }
 
 // Объекты и ожидаемый результат
@@ -551,11 +575,14 @@ const products = [
   { name: 'Захват', price: 1200, quantity: 2 },
 ];
 
-console.log(getAllPropValues(products, 'name'));
-// ['Радар', 'Радар', 'Радар', 'Сканер', 'Сканер', 'Дроид', 'Захват']
+console.log(calculateTotalPrice(products, 'Радар'));
+// 9080
 
-console.log(getAllPropValues(products, 'quantity'));
-// [4, 2, 1, 1, 3, 7, 2]
+console.log(calculateTotalPrice(products, 'Сканер'));
+// 10200
 
-console.log(getAllPropValues(products, 'category'));
-//  []
+console.log(calculateTotalPrice(products, 'Захват'));
+// 2400
+
+console.log(calculateTotalPrice(products, 'Дроид'));
+// 2800
