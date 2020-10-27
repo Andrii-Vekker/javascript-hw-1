@@ -1139,50 +1139,45 @@ mood : happy
 
 class Car {
  // Write code under this line
-  static getSpecs(car){
-  return `maxSpeed: ${car.maxSpeed},
-speed: ${car.speed},
-isOn: ${car.isOn},
-distance: ${car.distance},
-price: ${car._price}`
+   static getSpecs(car) {
+        return `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car._price}`
   }
-  constructor(car) {
-       this._price = car.price;
+    constructor(obj) {
+        this._price = obj.price;
         this.speed = 0;
-        this.maxSpeed = car.maxSpeed;
+        this.maxSpeed = obj.maxSpeed;
         this.isOn = false;
         this.distance = 0;
   }
-  get price() {
-    return this._price
+    get price() {
+        return this._price;
   }
-  set price(value) {
-    this._price = value
+    set price(value) {
+        this._price = value;
   }
-  turnOn() {
-    if (this.speed > 0) ; {
-    this.isOn = true;
-    }
+    turnOn() {
+        this.isOn = true;
   }
-  turnOff() {
-    if (this.speed <= 0) ; {
-    this.isOn = false;
-    }
+    turnOff() {
+        this.isOn = false;
+        this.speed = 0;
   }
-  accelerate(value) {
-    if (this.speed <= this.maxSpeed) {
-      this.speed += value
-    }
+    accelerate(value) {
+        this.speed += value;
+        if (this.speed > this.maxSpeed) {
+            this.speed = this.maxSpeed;
+        }
   }
-  decelerate(value) {
-     if (this.speed > 0) {
-      this.speed -= value
-    }
+    decelerate(value) {
+        this.speed -= value;
+        if (this.speed < 0) {
+            this.speed = 0;
+        }
   }
-  drive(hours) {
-    if (this.isOn === true) {
-       this.distance += hours * this.speed;
-    }
+    drive(hours) {
+        if (this.isOn === true) {
+            this.distance += hours * this.speed;
+      }
   }
 }
  
@@ -1194,16 +1189,13 @@ mustang.drive(2);
  console.log(Car.getSpecs(mustang));
 // 'maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000'
 
-// mustang.decelerate(20);
-// mustang.drive(1);
-// mustang.turnOff();
+mustang.decelerate(20);
+mustang.drive(1);
+mustang.turnOff();
 
-  console.log(Car.getSpecs(mustang));
+ console.log(Car.getSpecs(mustang));
 // 'maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000'
 
-  console.log(mustang.price); // 2000
-// mustang.price = 4000;
+console.log(mustang.price); // 2000
+mustang.price = 4000;
  console.log(mustang.price); // 4000
- 
-
-
